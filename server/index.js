@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.json()); 
 
 
-app.use("/genre", genreRouter);
-app.use("/movie", movieRouter);
+app.use("/api/genre", genreRouter);
+app.use("/api/movie", movieRouter);
 
 
 const port = process.env.PORT || 3000;
