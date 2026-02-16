@@ -10,12 +10,10 @@ const app = express();
 app.use(cors());
 app.use(express.json()); 
 
-const mainRouter = express.Router();
 
-mainRouter.use("/genre", genreRouter);
-mainRouter.use("/movie", movieRouter);
+app.use("/genre", genreRouter);
+app.use("/movie", movieRouter);
 
-app.use("/api", mainRouter);
 
 const port = process.env.PORT || 3000;
 if (process.env.NODE_ENV !== 'production') {
