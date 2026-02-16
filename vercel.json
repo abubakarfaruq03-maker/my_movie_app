@@ -1,15 +1,20 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/genre",
-      "destination": "/server/index.js"
+      "src": "server/index.js",
+      "use": "@vercel/node"
     },
     {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "frontend/dist" }
+    }
+  ],
+  "rewrites": [
+    {
       "source": "/api/(.*)",
-      "destination": "/server/index.js"
+      "destination": "server/index.js"
     },
     {
       "source": "/(.*)",
