@@ -1,22 +1,27 @@
-import express from "express"
+import express from "express";
 import env from "dotenv";
-import cors from "cors"
+import cors from "cors";
 import genreRouter from "./Router/genre.js";
 import movieRouter from "./Router/movie.js";
-const app = express();
-const port = process.env.PORT || 3000;
-env.config()
-app.use(cors())
-const mainRouter = express.Router();
 
+env.config();
+
+const app = express();
+app.use(cors());
+app.use(express.json()); 
+
+const mainRouter = express.Router();
 
 mainRouter.use("/genre", genreRouter);
 mainRouter.use("/movie", movieRouter);
 
 app.use("/api", mainRouter);
 
+const port = process.env.PORT || 3000;
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}
 
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+export default app;
