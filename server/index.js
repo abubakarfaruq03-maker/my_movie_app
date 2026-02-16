@@ -4,7 +4,7 @@ import cors from "cors"
 import genreRouter from "./Router/genre.js";
 import movieRouter from "./Router/movie.js";
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 env.config()
 app.use(cors())
 const mainRouter = express.Router();
