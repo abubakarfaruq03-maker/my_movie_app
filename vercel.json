@@ -1,13 +1,19 @@
 {
   "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
+    {
+      "source": "/api/genre",
+      "destination": "/server/index.js"
+    },
     {
       "source": "/api/(.*)",
       "destination": "/server/index.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/frontend/dist/main.jsx"
+      "destination": "/frontend/dist/index.html"
     }
   ]
 }
