@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "functions": {
+    "server/index.js": {
+      "runtime": "vercel-node@latest"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/server/index.js" },
+    { "source": "/assets/(.*)", "destination": "/frontend/dist/assets/$1" },
+    { "source": "/((?!api/).*)", "destination": "/frontend/index.html" }
+  ]
+}
