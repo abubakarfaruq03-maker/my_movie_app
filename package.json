@@ -1,18 +1,8 @@
 {
   "name": "movie-app-root",
-  "version": "1.0.0",
-  "private": true,
-  "engines": {
-    "node": "20.x"
-  },
+  "private": true,  
   "scripts": {
-  "build": "cd frontend && npm install && npm run build",
-  "install": "npm install"
-},
-  "dependencies": {
-    "express": "^4.18.2",
-    "axios": "^1.6.0",
-    "dotenv": "^16.3.1",
-    "cors": "^2.8.5"
-  }
+  "build": "cd frontend && npm install && npm run build"
+ 
+}
 }
