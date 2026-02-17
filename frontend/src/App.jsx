@@ -13,6 +13,7 @@ function App() {
   const [movie, setMovie] = useState(null)
   const [showMovie, setShowMovie] = useState(false)
   const [get, setGet] = useState("")
+  const [header, setHeader] = useState("Welcome")
 
   // FETCH GENRES
   const getGenres = async () => {
@@ -21,7 +22,7 @@ function App() {
       setGet("genres")
       setError("")
       const result = await axios.get(`${API_URL}/genre`)
-      
+
       if (result.data && Array.isArray(result.data)) {
         setGenre(result.data)
       } else {
@@ -30,7 +31,7 @@ function App() {
       }
     } catch (err) {
       console.error("Error fetching genres:", err.response?.data || err.message);
-      setGenre([]) 
+      setGenre([])
       setError("Unable to fetch genres. Please try again.")
     } finally {
       setLoading(false)
@@ -70,6 +71,7 @@ function App() {
       setError("Unable to get movie. Please try again.")
     } finally {
       setLoading(false)
+      setHeader("Your Movie")
     }
   }
 
@@ -81,7 +83,7 @@ function App() {
       {/* HEADER SECTION */}
       <div className='flex justify-start items-center flex-col gap-20'>
         <h1 className='text-red-800 text-5xl font-bold mt-40'>
-          Welcome
+          {header}
         </h1>
         {(!genres || genres.length === 0) && !Loading && (
           <Button text="Select a genre" onClick={getGenres} variant='secondary' />
@@ -131,13 +133,18 @@ function App() {
       {/* MOVIE DISPLAY VIEW */}
       {showMovie && movie && (
         <div className='flex flex-col justify-center items-center mt-10 pb-10 px-4'>
+          <div>
+            <h1 className='text-red-800 text-5xl font-bold mt-40'>
+              {header}
+            </h1>
+          </div>
           <div className='w-64 h-96 rounded-2xl bg-gray-800 shadow-2xl overflow-hidden'>
             {movie.poster_path ? (
-               <img
-               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-               alt={movie.title}
-               className="w-full h-full object-cover"
-             />
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className="w-full h-full object-cover"
+              />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-white">No Poster</div>
             )}
@@ -146,7 +153,7 @@ function App() {
           <div className='text-center mt-6 max-w-2xl bg-black/60 p-6 rounded-3xl'>
             <h2 className='font-bold text-3xl text-white mb-3'>{movie.title}</h2>
             <p className='text-white leading-relaxed mb-6'>{movie.overview}</p>
-            
+
             <div className='flex flex-col sm:flex-row justify-center items-center gap-4'>
               <Button text="Get Another Movie" onClick={getMovie} variant='secondary' />
               <Button text="Change Genre" onClick={handleResetGenres} variant='primary' />
@@ -158,4 +165,4 @@ function App() {
   )
 }
 
-  export default App
+export default App
