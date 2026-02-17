@@ -112,7 +112,7 @@ function App() {
       )}
 
       {!Loading && Array.isArray(genres) && genres.length > 0 && !selectedGenre && (
-        <div className='mt-16 px-4 sm:px-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-6xl mx-auto'>
+        <div className='mt-16 px-4 md:pb-0 pb-6 sm:px-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-6xl mx-auto'>
           {genres.map(genre => (
             <div
               key={genre.id}
