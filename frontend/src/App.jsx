@@ -133,11 +133,7 @@ function App() {
       {/* MOVIE DISPLAY VIEW */}
       {showMovie && movie && (
         <div className='flex flex-col justify-center items-center mt-10 pb-10 px-4'>
-          <div>
-            <h1 className='text-red-800 text-5xl font-bold mt-40'>
-              {header}
-            </h1>
-          </div>
+        
           <div className='w-64 h-96 rounded-2xl bg-gray-800 shadow-2xl overflow-hidden'>
             {movie.poster_path ? (
               <img
