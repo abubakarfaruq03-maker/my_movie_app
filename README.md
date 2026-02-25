@@ -1,6 +1,5 @@
-Since you're building a sleek movie discovery app with a Vite/React frontend and a Vercel-hosted backend, your README should reflect that professional "monorepo" structure we've been working on.
 
-Here is a clean, comprehensive README.md tailored for your project.
+
 
 🎬 Movie Matcher
 A sleek, responsive web application that helps users discover random movies based on their favorite genres. Built with React, Vite, Tailwind CSS, and powered by the TMDB API via a custom Express backend.
